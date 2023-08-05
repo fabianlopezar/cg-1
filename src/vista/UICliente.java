@@ -47,6 +47,7 @@ public class UICliente extends javax.swing.JFrame {
         SaveButton = new javax.swing.JButton();
         LoadDataButton = new javax.swing.JButton();
         IndexText = new javax.swing.JTextField();
+        IndexText1 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         AddFirstButton = new javax.swing.JCheckBoxMenuItem();
@@ -117,10 +118,18 @@ public class UICliente extends javax.swing.JFrame {
         });
 
         IndexText.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
-        IndexText.setText("Ingrese el nombre a buscar  y luego oprima IndexOf");
+        IndexText.setText("nombre a buscar");
         IndexText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IndexTextActionPerformed(evt);
+            }
+        });
+
+        IndexText1.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
+        IndexText1.setText("Index");
+        IndexText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IndexText1ActionPerformed(evt);
             }
         });
 
@@ -188,10 +197,7 @@ public class UICliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(LoadDataButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(IndexText, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(CancelarButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,15 +213,20 @@ public class UICliente extends javax.swing.JFrame {
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(IndexText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(SaveButton)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                                .addComponent(MostrarButton)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(LoadDataButton)
+                                        .addGap(6, 6, 6))
+                                    .addComponent(SaveButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(IndexText1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addComponent(MostrarButton)
                         .addGap(120, 120, 120))))
         );
         layout.setVerticalGroup(
@@ -242,17 +253,22 @@ public class UICliente extends javax.swing.JFrame {
                         .addComponent(MostrarButton)
                         .addGap(32, 32, 32)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CancelarButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(CancelarButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(IndexText, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(IndexText, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(IndexText1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(AgregarButton)
-                                .addGap(27, 27, 27)
+                                .addGap(18, 18, 18)
                                 .addComponent(SaveButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(LoadDataButton)))
-                        .addGap(0, 22, Short.MAX_VALUE)))
+                        .addGap(0, 49, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -357,6 +373,10 @@ public class UICliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_IndexTextActionPerformed
 
+    private void IndexText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndexText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IndexText1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -399,6 +419,7 @@ public class UICliente extends javax.swing.JFrame {
     private javax.swing.JButton CancelarButton;
     private javax.swing.JCheckBoxMenuItem IndexOf;
     private javax.swing.JTextField IndexText;
+    private javax.swing.JTextField IndexText1;
     private javax.swing.JButton LoadDataButton;
     private javax.swing.JButton MostrarButton;
     private javax.swing.JButton SaveButton;
