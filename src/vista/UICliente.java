@@ -1,6 +1,7 @@
 package vista;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,14 +48,14 @@ public class UICliente extends javax.swing.JFrame {
         SaveButton = new javax.swing.JButton();
         LoadDataButton = new javax.swing.JButton();
         IndexText = new javax.swing.JTextField();
-        IndexText1 = new javax.swing.JTextField();
+        IndexOfButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         AddFirstButton = new javax.swing.JCheckBoxMenuItem();
         AddLastButton = new javax.swing.JCheckBoxMenuItem();
-        IndexOf = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        InvertListButton = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,18 +119,17 @@ public class UICliente extends javax.swing.JFrame {
         });
 
         IndexText.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
-        IndexText.setText("nombre a buscar");
+        IndexText.setText("digite nombre");
         IndexText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IndexTextActionPerformed(evt);
             }
         });
 
-        IndexText1.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
-        IndexText1.setText("Index");
-        IndexText1.addActionListener(new java.awt.event.ActionListener() {
+        IndexOfButton.setText("IndexOf");
+        IndexOfButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IndexText1ActionPerformed(evt);
+                IndexOfButtonActionPerformed(evt);
             }
         });
 
@@ -153,15 +153,6 @@ public class UICliente extends javax.swing.JFrame {
         });
         jMenu1.add(AddLastButton);
 
-        IndexOf.setSelected(true);
-        IndexOf.setText("IndexOf");
-        IndexOf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IndexOfActionPerformed(evt);
-            }
-        });
-        jMenu1.add(IndexOf);
-
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("Remove");
         jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +171,14 @@ public class UICliente extends javax.swing.JFrame {
         });
         jMenu1.add(jCheckBoxMenuItem2);
 
+        InvertListButton.setText("InvertList");
+        InvertListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InvertListButtonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(InvertListButton);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -197,7 +196,10 @@ public class UICliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(IndexOfButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(IndexText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(CancelarButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,20 +216,17 @@ public class UICliente extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(IndexText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(LoadDataButton)
-                                        .addGap(6, 6, 6))
-                                    .addComponent(SaveButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(IndexText1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addComponent(MostrarButton)
-                        .addGap(120, 120, 120))))
+                        .addGap(120, 120, 120))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LoadDataButton)
+                                .addGap(6, 6, 6))
+                            .addComponent(SaveButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,18 +256,16 @@ public class UICliente extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(CancelarButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(IndexText, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(IndexText1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(AgregarButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(SaveButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(LoadDataButton)))
-                        .addGap(0, 49, Short.MAX_VALUE)))
+                        .addComponent(AgregarButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(SaveButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(LoadDataButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(IndexOfButton)
+                            .addComponent(IndexText, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 11, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -352,15 +349,6 @@ public class UICliente extends javax.swing.JFrame {
         System.out.println(listaClientes);
     }//GEN-LAST:event_AddLastButtonActionPerformed
 
-    private void IndexOfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndexOfActionPerformed
-
-        int aux = 0;
-        aux = listaClientes.element().getNombreP().indexOf(IndexText.getText());
-
-        TextAreaMostrar.setText(String.valueOf(aux));
-        System.out.println(listaClientes);
-    }//GEN-LAST:event_IndexOfActionPerformed
-
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
         listaClientes.remove();
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
@@ -373,9 +361,25 @@ public class UICliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_IndexTextActionPerformed
 
-    private void IndexText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndexText1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IndexText1ActionPerformed
+    private void IndexOfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IndexOfButtonActionPerformed
+
+        int aux = 0;
+        aux = listaClientes.element().getNombreP().indexOf(IndexText.getText());
+
+        if (aux != -1) {
+            TextAreaMostrar.setText("El índice del cliente en la lista es: " + aux);
+        } else {
+            TextAreaMostrar.setText("Cliente digitado `" + IndexText.getText() + "` no encontrado en la lista.");
+        }
+
+        System.out.println(listaClientes);
+    }//GEN-LAST:event_IndexOfButtonActionPerformed
+
+    private void InvertListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvertListButtonActionPerformed
+        LinkedList<Cliente> reversedList = new LinkedList<>(listaClientes);
+        Collections.reverse(reversedList);
+        
+    }//GEN-LAST:event_InvertListButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -417,9 +421,9 @@ public class UICliente extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem AddLastButton;
     private javax.swing.JButton AgregarButton;
     private javax.swing.JButton CancelarButton;
-    private javax.swing.JCheckBoxMenuItem IndexOf;
+    private javax.swing.JButton IndexOfButton;
     private javax.swing.JTextField IndexText;
-    private javax.swing.JTextField IndexText1;
+    private javax.swing.JMenuItem InvertListButton;
     private javax.swing.JButton LoadDataButton;
     private javax.swing.JButton MostrarButton;
     private javax.swing.JButton SaveButton;
